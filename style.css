@@ -1,21 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 
 * {
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Open Sans', sans-serif;
   scroll-behavior: smooth;
-}
-
-html {
-  scroll-padding-top: 80px;
 }
 
 header {
   background-color: #f0f0f0;
-  position: fixed;
   width: 100%;
+  position: fixed;
   z-index: 999;
   display: flex;
   justify-content: space-between;
@@ -44,14 +40,17 @@ header {
 }
 
 section {
-  padding: 100px 200px;
+  width: 100%;
+  padding: 100px 20px;
+  box-sizing: border-box;
 }
 
 .main {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #fdfdfd;
+  background-size: cover;
+  background-position: center;
 }
 
 .main h2 {
@@ -75,20 +74,20 @@ section {
   letter-spacing: 1px;
   margin-top: 10px;
   margin-bottom: 30px;
-  line-height: 1.6;
 }
 
 .main-button {
-  background-color: blueviolet;
   color: #fff;
+  background-color: blueviolet;
   text-decoration: none;
   font-size: 1.1em;
   font-weight: 600;
-  padding: 0.9em 2.2em;
-  border-radius: 15px;
-  transition: 0.4s ease;
   display: inline-block;
+  padding: 0.9375em 2.1875em;
+  letter-spacing: 1px;
+  border-radius: 15px;
   margin-bottom: 40px;
+  transition: 0.7s ease;
 }
 
 .main-button:hover {
@@ -97,24 +96,30 @@ section {
 }
 
 .social-icons a {
-  color: #3a6cf4;
+  color: #fff;
   font-size: 1.4em;
   padding-right: 30px;
 }
 
 .title {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   color: #3a6cf4;
   font-size: 2.2em;
   font-weight: 800;
   margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
 }
 
 .content {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 10px;
 }
 
 .card {
@@ -122,19 +127,22 @@ section {
   box-shadow: 0 5px 25px rgba(1, 1, 1, 0.15);
   border-radius: 10px;
   padding: 25px;
+  margin: 15px auto;
   transition: 0.7s ease;
   font-size: large;
+  font-style: oblique;
   line-height: 2;
-  width: 300px;
+  max-width: 360px;
+  width: 100%;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .card .icon {
   color: #3a6cf4;
-  font-size: 4em;
+  font-size: 8em;
   text-align: center;
 }
 
@@ -145,6 +153,7 @@ section {
 .info h3 {
   color: #3a6cf4;
   font-size: 1.2em;
+  font-weight: 700;
   margin: 10px;
 }
 
@@ -152,21 +161,32 @@ section {
   background-color: #000016;
 }
 
+.Projects .content {
+  margin-top: 30px;
+}
+
 .project-card {
   background-color: #fff;
-  border-radius: 10px;
+  border: 1px solid #fff;
+  min-height: 14em;
+  max-width: 360px;
+  width: 100%;
   overflow: hidden;
-  width: 360px;
-  transition: 0.4s ease;
+  border-radius: 10px;
+  margin: 20px auto;
+  transition: 0.7s ease;
 }
 
 .project-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.1);
+}
+
+.project-card:hover .project-img {
+  opacity: 0.9;
 }
 
 .project-img img {
   width: 100%;
-  display: block;
 }
 
 .project-info {
@@ -174,16 +194,30 @@ section {
 }
 
 .project-category {
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: #000;
 }
 
 .project-title {
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-weight: 800;
   margin-top: 10px;
 }
 
+.more-detail {
+  text-decoration: none;
+  color: #3a6cf4;
+}
+
+.more-detail:hover {
+  color: blueviolet;
+}
+
+/* زرار More Details */
 .more-btn {
-  margin-top: 10px;
+  margin-top: 15px;
   padding: 10px 20px;
   background-color: #5a3e36;
   color: white;
@@ -193,15 +227,9 @@ section {
 }
 
 .details-section {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.6s ease, opacity 0.6s ease;
-}
-
-.details-section.show {
-  max-height: 1500px;
-  opacity: 1;
+  display: none;
+  margin-top: 15px;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 .extra-img {
@@ -210,17 +238,48 @@ section {
   border-radius: 10px;
 }
 
-.cards-contact .card {
-  width: 280px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
+.contact {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact .icon {
+  font-size: 4.5em;
+  text-align: center;
+  color: #3a6cf4;
+}
+
+.contact .info h3 {
+  color: #000;
+}
+
+.contact .info p {
+  font-size: 1.2em;
+}
+
+/* Footer */
 .footer {
   background-color: #000016;
   color: #fff;
-  padding: 2em;
+  padding: 2em 20px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .footer-title {
@@ -232,53 +291,64 @@ section {
   color: #3a6cf4;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   header {
     padding: 12px 20px;
+  }
+
+  .navigation a {
+    padding-left: 10px;
+  }
+
+  .title {
+    font-size: 1.8em;
   }
 
   section {
     padding: 80px 20px;
   }
 
-  .content {
+  .main h3 {
+    font-size: 1em;
+  }
+
+  .main h2 {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
-  .main h2 span {
-    font-size: 2em;
+  .footer .social-icons {
+    margin-top: 10px;
+  }
+
+  .main h3 {
+    font-size: 1.2em;
   }
 }
-section {
-  padding: 100px 20px;
+
+@media (max-width: 641px) {
+  body {
+    font-size: 12px;
+  }
+
+  .main h2 {
+    font-size: 1.2em;
+  }
+
+  .main h3 {
+    font-size: 1.1em;
+  }
 }
 
-.content,
-.project-card,
-.card,
-.contact,
-.footer {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.content {
-  max-width: 1200px;
-  width: 100%;
-  padding: 0 20px;
-}
-
-.project-card,
-.card {
-  width: 100%;
-  max-width: 360px;
-}
-
-.footer {
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 2em 20px;
+@media (max-width: 300px) {
+  body {
+    font-size: 10px;
+  }
 }
